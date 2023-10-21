@@ -54,4 +54,54 @@ public:
     ~NodoABB();
 };
 
+template<typename T, bool menor(T, T), bool igual(T, T)>
+NodoABB<T, menor, igual>::NodoABB(T dato) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void NodoABB<T, menor, igual>::alta(T dato_insertar) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+NodoABB<T, menor, igual>* NodoABB<T, menor, igual>::baja(T dato_bajar) {
+    return nullptr;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool NodoABB<T, menor, igual>::consulta(T dato_consultar) {
+    return false;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void NodoABB<T, menor, igual>::inorder(std::vector<T>& datos) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void NodoABB<T, menor, igual>::preorder(std::vector<T>& datos) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void NodoABB<T, menor, igual>::postorder(std::vector<T>& datos) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void NodoABB<T, menor, igual>::ancho(std::queue<NodoABB<T, menor, igual>*>& nodos, std::vector<T>& datos) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void NodoABB<T, menor, igual>::ejecutar(void (* metodo)(T)) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+NodoABB<T, menor, igual>::~NodoABB() {
+
+}
+
 #endif

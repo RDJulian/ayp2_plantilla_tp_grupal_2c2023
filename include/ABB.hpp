@@ -63,4 +63,64 @@ public:
     ~ABB();
 };
 
+template<typename T, bool menor(T, T), bool igual(T, T)>
+ABB<T, menor, igual>::ABB() {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB<T, menor, igual>::alta(T dato) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB<T, menor, igual>::baja(T dato) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::consulta(T dato) {
+    return false;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB<T, menor, igual>::inorder() {
+    return std::vector<T>();
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB<T, menor, igual>::preorder() {
+    return std::vector<T>();
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB<T, menor, igual>::postorder() {
+    return std::vector<T>();
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::vector<T> ABB<T, menor, igual>::ancho() {
+    return std::vector<T>();
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+void ABB<T, menor, igual>::ejecutar(void (* metodo)(T)) {
+
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+std::size_t ABB<T, menor, igual>::tamanio() {
+    return 0;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+bool ABB<T, menor, igual>::vacio() {
+    return false;
+}
+
+template<typename T, bool menor(T, T), bool igual(T, T)>
+ABB<T, menor, igual>::~ABB() {
+
+}
+
 #endif
