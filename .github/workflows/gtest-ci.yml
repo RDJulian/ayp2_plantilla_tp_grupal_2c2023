@@ -4,11 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Build and Run Test Suite
       - uses: actions/checkout@v3
-      
-      - name: Build
-      - run: mkdir ${{github.workspace}}/tests/build && cd ${{github.workspace}}/tests/build && cmake .. && cmake --build .
-      
-      - name: Run Test Suite
-      - working-directory: ${{github.workspace}}/tests/build
-      - run: ./Google_Tests_run
+      - run: mkdir ${{github.workspace}}/tests/build && cd ${{github.workspace}}/tests/build && cmake .. && cmake --build . && ./Google_Tests_run
