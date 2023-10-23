@@ -15,8 +15,6 @@ include_directories(bGVjdG9y)
 
 add_executable(ayp2_plantilla_tp_grupal_2c2023
         src/Placa.cpp
-        include/ABB.hpp
-        include/NodoABB.hpp
         bGVjdG9y/bGVjdG9y.cpp
         bGVjdG9y/ZGVjb2Rl.cpp
         main.cpp

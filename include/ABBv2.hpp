@@ -2,7 +2,7 @@
 #define ABB_H
 
 #include <exception>
-#include "NodoABB.hpp"
+#include "NodoABBv2.hpp"
 
 class ABB_exception : public std::exception {
 };
@@ -12,6 +12,37 @@ class ABB {
 private:
     NodoABB<T, menor, igual>* raiz;
     std::size_t cantidad_datos;
+
+    // Pre: -
+    // Post: Agrega el dato al árbol.
+    // NOTA: Ya se debería haber revisado si el dato está o no.
+    void alta(T dato, NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Elimina el dato del árbol y devuelve la nueva raiz, de haberla.
+    // NOTA: Ya se debería haber revisado si el dato está o no.
+    void baja(T dato, NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Devuelve true si el dato está en el subárbol.
+    bool consulta(T dato, NodoABB<T, menor, igual>* nodo_actual);
+
+    // Pre: -
+    // Post: Carga los datos, respetando el recorrido inorder.
+    void inorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
+
+    // Pre: -
+    // Post: Carga los datos, respetando el recorrido preorder.
+    void preorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
+
+    // Pre: -
+    // Post: Carga los datos, respetando el recorrido postorder.
+    void postorder(NodoABB<T, menor, igual>* nodo_actual, std::vector<T>& datos);
+
+    // Pre: -
+    // Post: Ejecuta el método/función en el subárbol.
+    void ejecutar(void metodo(T), NodoABB<T, menor, igual>* nodo_actual);
+
 public:
     // Constructor.
     ABB();
