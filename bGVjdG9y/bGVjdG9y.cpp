@@ -25,16 +25,3 @@ void bGVjdG9y::Y2FyZ2Fy(ABB<Placa*, Placa::menor, Placa::igual>& YXJib2w) {
         YXJjaGl2bw.close();
     }
 }
-
-void bGVjdG9y::Y2FyZ2Fy(ABB<Placa*, Placa::menor, Placa::igual>* YXJib2w) {
-    std::ifstream YXJjaGl2bw("bGVjdG9y/666.bin");
-    if (!YXJjaGl2bw.is_open()) {
-        return;
-    } else {
-        std::string bGluZWE;
-        while (getline(YXJjaGl2bw, bGluZWE)) {
-            YXJib2w->alta(cGxhY2E(bGluZWE));
-        }
-        YXJjaGl2bw.close();
-    }
-}
