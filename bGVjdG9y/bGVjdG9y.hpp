@@ -11,9 +11,6 @@ private:
 public:
     // Usar este método para un árbol inicializado en el stack.
     static void Y2FyZ2Fy(ABB<Placa*, Placa::menor, Placa::igual>& YXJib2w);
-
-    // Usar este método para un árbol inicializado en el heap.
-    static void Y2FyZ2Fy(ABB<Placa*, Placa::menor, Placa::igual>* YXJib2w);
 };
 
 #endif
