@@ -2,12 +2,15 @@
 
 using namespace std;
 
+Matriz::Matriz() {
+    fila = 0;
+    columna = 0;
+}
+
 Matriz::Matriz(size_t fila, size_t columna, int valor) {
-    if (fila < 1 || columna < 1) {
-        throw Dimensiones_no_validas_exception();
-    } else {
-        this->fila = fila;
-        this->columna = columna;
+    this->fila = fila;
+    this->columna = columna;
+    if (fila * columna != 0) {
         matriz = new int[fila * columna];
         for (size_t i = 0; i < fila * columna; i++) {
             matriz[i] = valor;
@@ -24,20 +27,25 @@ Matriz::Matriz(size_t tamanio) : Matriz(tamanio, tamanio, 0) {}
 Matriz::Matriz(const Matriz& matriz1) {
     this->fila = matriz1.fila;
     this->columna = matriz1.columna;
-    matriz = new int[fila * columna];
-    for (size_t i = 0; i < fila * columna; i++) {
-        matriz[i] = matriz1.matriz[i];
+    if (fila * columna != 0) {
+        matriz = new int[fila * columna];
+        for (size_t i = 0; i < fila * columna; i++) {
+            matriz[i] = matriz1.matriz[i];
+        }
     }
 }
 
 Matriz& Matriz::operator=(const Matriz& matriz1) {
     if (this != &matriz1) {
-        delete matriz;
+        delete[] matriz;
+        matriz = nullptr;
         this->fila = matriz1.fila;
         this->columna = matriz1.columna;
-        matriz = new int[fila * columna];
-        for (size_t i = 0; i < fila * columna; i++) {
-            matriz[i] = matriz1.matriz[i];
+        if (fila * columna != 0) {
+            matriz = new int[fila * columna];
+            for (size_t i = 0; i < fila * columna; i++) {
+                matriz[i] = matriz1.matriz[i];
+            }
         }
     }
     return *this;
@@ -52,7 +60,7 @@ bool Matriz::indice_valido(size_t i, size_t j) {
 }
 
 int& Matriz::elemento(size_t i, size_t j) {
-    if (!indice_valido(i, j)) {
+    if (!indice_valido(i, j) || !matriz) {
         throw Indice_no_valido_exception();
     } else {
         return matriz[calcular_indice(i, j)];

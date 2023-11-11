@@ -4,13 +4,6 @@
 #include <exception>
 #include <cstddef>
 
-class Dimensiones_no_validas_exception : public std::exception {
-public:
-    [[nodiscard]] const char* what() const noexcept override {
-        return "Error: el contacto no tiene el formato correcto.";
-    }
-};
-
 class Indice_no_valido_exception : public std::exception {
 public:
     [[nodiscard]] const char* what() const noexcept override {
@@ -20,7 +13,7 @@ public:
 
 class Matriz {
 private:
-    int* matriz;
+    int* matriz = nullptr;
     size_t fila;
     size_t columna;
 
@@ -41,6 +34,9 @@ private:
     Matriz(size_t fila, size_t columna);
 
 public:
+    // Constructor default
+    Matriz();
+
     // Pre: Ninguna de las dimesiones puede ser menor que 1.
     // Post: Genera una matriz cuadrada con el tamaño indicado, inicializada con el valor ingresado.
     Matriz(size_t tamanio, int valor);
