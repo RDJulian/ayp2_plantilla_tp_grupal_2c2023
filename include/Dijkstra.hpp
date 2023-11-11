@@ -29,7 +29,7 @@ public:
     calcular_camino_minimo(Matriz matriz_adyacencia, size_t vertices, size_t origen, size_t destino,
                            bool hay_cambios) override;
 
-    ~Dijkstra() override;
+    ~Dijkstra();
 };
 
 #endif

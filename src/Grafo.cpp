@@ -12,12 +12,12 @@ Grafo::Grafo() {
 
 Grafo::Grafo(size_t cantidad_vertices) {
     matriz_adyacencia = Matriz(cantidad_vertices, INFINITO);
+    vertices = cantidad_vertices;
+    algoritmo_camino_minimo = nullptr;
+    hay_cambios = true;
     for (size_t i = 0; i < vertices; i++) {
         matriz_adyacencia.elemento(i, i) = 0;
     }
-    algoritmo_camino_minimo = nullptr;
-    vertices = cantidad_vertices;
-    hay_cambios = true;
 }
 
 void Grafo::agrandar_matriz_adyacencia() {
@@ -30,8 +30,10 @@ void Grafo::agrandar_matriz_adyacencia() {
 
 int Grafo::obtener_peso_camino(std::vector<size_t> camino) {
     int peso = 0;
-    for (size_t i = 0; i < camino.size() - 1; i++) {
-        peso += matriz_adyacencia.elemento(camino[i], camino[i + 1]);
+    if (camino.size() > 1) {
+        for (size_t i = 0; i < camino.size() - 1; i++) {
+            peso += matriz_adyacencia.elemento(camino[i], camino[i + 1]);
+        }
     }
     return peso;
 }
