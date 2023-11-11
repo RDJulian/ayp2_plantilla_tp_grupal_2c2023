@@ -2,6 +2,7 @@
 #define GRAFOS_DIJKSTRA_H
 
 #include "CaminoMinimo.hpp"
+#include <stack>
 
 class Dijkstra : public CaminoMinimo {
 private:
@@ -21,15 +22,19 @@ private:
     // Post: Actualiza el vector de distancias y el de recorrido con los valores que impone vértice.
     void actualizar_distancia(size_t vertice);
 
+    // Pre: Se debe haber calculado el camino.
+    // Post: Devuelve el camino desde origen a destino.
+    std::vector<size_t> obtener_camino(size_t origen, size_t destino);
+
 public:
     // Constructor.
     Dijkstra();
 
     std::vector<size_t>
-    calcular_camino_minimo(Matriz matriz_adyacencia, size_t vertices, size_t origen, size_t destino,
+    calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen, size_t destino,
                            bool hay_cambios) override;
 
-    ~Dijkstra();
+    ~Dijkstra() override;
 };
 
 #endif

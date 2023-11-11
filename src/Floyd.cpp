@@ -23,14 +23,13 @@ std::vector<size_t> Floyd::obtener_camino(size_t origen, size_t destino) {
 
 std::vector<size_t>
 Floyd::calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen, size_t destino, bool hay_cambios) {
-    std::vector<size_t> camino;
-
     if (hay_cambios) {
-        this->matriz_adyacencia = matriz_adyacencia;
+        matriz_adyacencia = adyacencia;
         cantidad_vertices = vertices;
         inicializar_matrices();
 
         // TODO: Escribir el código necesario, haciendo uso de los métodos existentes.
+
     }
 
     return obtener_camino(origen, destino);

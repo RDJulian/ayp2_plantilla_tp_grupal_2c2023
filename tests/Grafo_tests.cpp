@@ -8,12 +8,11 @@ protected:
 
     void generar_grafo() {
         grafo = Grafo(7);
-        grafo.cambiar_arista(0, 1, 5);
-        grafo.cambiar_arista(1, 0, 5);
-        grafo.cambiar_arista(1, 3, 7);
-        grafo.cambiar_arista(1, 2, 10);
-        grafo.cambiar_arista(0, 2, 8);
-        grafo.cambiar_arista(0, 5, 15);
+        grafo.cambiar_arista(0, 1, 9);
+        grafo.cambiar_arista(0, 3, 7);
+        grafo.cambiar_arista(0, 2, 10);
+        grafo.cambiar_arista(1, 2, 8);
+        grafo.cambiar_arista(1, 5, 15);
         grafo.cambiar_arista(2, 3, 9);
         grafo.cambiar_arista(2, 5, 7);
         grafo.cambiar_arista(3, 6, 25);
@@ -29,11 +28,11 @@ TEST_F(Grafo_tests, camino_minimo) {
     generar_grafo();
     grafo.usar_floyd();
     resultado = grafo.obtener_camino_minimo(0, 6);
-    ASSERT_THAT(resultado.first, testing::ElementsAre(0));
-    ASSERT_EQ(resultado.second, 0);
+    ASSERT_THAT(resultado.first, testing::ElementsAre(0, 2, 5, 6));
+    ASSERT_EQ(resultado.second, 29);
 
     grafo.usar_dijkstra();
     resultado = grafo.obtener_camino_minimo(0, 6);
-    ASSERT_THAT(resultado.first, testing::ElementsAre(0));
-    ASSERT_EQ(resultado.second, 0);
+    ASSERT_THAT(resultado.first, testing::ElementsAre(0, 2, 5, 6));
+    ASSERT_EQ(resultado.second, 29);
 }

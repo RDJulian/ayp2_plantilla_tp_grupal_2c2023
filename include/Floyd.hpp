@@ -12,8 +12,8 @@ private:
     // Post: Inicializa las matrices de costos y caminos necesarias para el algoritmo.
     void inicializar_matrices();
 
-    // Pre: Se debe haber calculado las matrices.
-    // Post: Calcula y devuelve el camino desde origen a destino.
+    // Pre: Se deben haber calculado las matrices.
+    // Post: Devuelve el camino desde origen a destino.
     std::vector<size_t> obtener_camino(size_t origen, size_t destino);
 
 public:
@@ -24,7 +24,7 @@ public:
     calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen, size_t destino,
                            bool hay_cambios) override;
 
-    ~Floyd();
+    ~Floyd() override;
 };
 
 #endif

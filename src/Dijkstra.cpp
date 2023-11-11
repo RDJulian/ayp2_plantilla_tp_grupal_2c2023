@@ -7,6 +7,10 @@ Dijkstra::Dijkstra() {
 }
 
 void Dijkstra::inicializar_arreglos(size_t origen) {
+    vertices_visitados = new bool[cantidad_vertices];
+    distancia = new int[cantidad_vertices];
+    recorrido = new size_t[cantidad_vertices];
+
     for (size_t i = 0; i < cantidad_vertices; i++) {
         vertices_visitados[i] = false;
         recorrido[i] = origen;
@@ -37,19 +41,24 @@ void Dijkstra::actualizar_distancia(size_t vertice) {
     }
 }
 
-std::vector<size_t>
-Dijkstra::calcular_camino_minimo(Matriz matriz_adyacencia, size_t vertices, size_t origen, size_t destino,
-                                 bool hay_cambios) {
+std::vector<size_t> Dijkstra::obtener_camino(size_t origen, size_t destino) {
     std::vector<size_t> camino;
-
-    this->matriz_adyacencia = matriz_adyacencia;
-    cantidad_vertices = vertices;
-
-    inicializar_arreglos(origen);
 
     // TODO: Escribir el código necesario, haciendo uso de los métodos existentes.
 
     return camino;
+}
+
+std::vector<size_t>
+Dijkstra::calcular_camino_minimo(Matriz adyacencia, size_t vertices, size_t origen, size_t destino,
+                                 bool hay_cambios) {
+    matriz_adyacencia = adyacencia;
+    cantidad_vertices = vertices;
+    inicializar_arreglos(origen);
+
+    // TODO: Escribir el código necesario, haciendo uso de los métodos existentes.
+
+    return obtener_camino(origen, destino);
 }
 
 Dijkstra::~Dijkstra() {
